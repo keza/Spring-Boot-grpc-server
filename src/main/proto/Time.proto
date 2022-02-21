@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package calculator;
+
+option java_package = "com.keza.backendgrpc.time";
+option java_multiple_files = true;
+
+message EmptyRequest {}
+
+message Input {
+  string time = 1;
+}
+
+message Output {
+  string time = 1;
+}
+
+service TimeService {
+  rpc Now(EmptyRequest) returns (Output) {};
+  rpc NowStream(EmptyRequest) returns (stream Output) {};
+}
